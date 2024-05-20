@@ -16,7 +16,7 @@ export function Questionspage(props: IQuestionspageProps) {
 	const [disableNext, setDisableNext] = useState(false);
 	const [disableBack, setDisableBack] = useState(false);
     const [isSubmitEnable, setSubmitEnable] = useState(false);
-    const [isQuestionsEnable, setIsQuestionsEnable] = useState(false);
+    const [isQuestionsEnable, setIsQuestionsEnable] = useState(true);
 
     const [currentQuestion, setCurrentQuestion] = useState<Question>({
         QuestionNo : 1,
@@ -38,6 +38,10 @@ export function Questionspage(props: IQuestionspageProps) {
             setCurrentQuestion(state.questions.Questions[state.questionNo.questionIndex]);
         } 
       }, [state.questions, state.questionNo.questionIndex]);
+
+    const onClickQuestions = () => {
+        setIsQuestionsEnable(false);
+    }  
 
     function onClickNextOrBack(nextOrBack: string) {
 		try {
@@ -114,7 +118,7 @@ export function Questionspage(props: IQuestionspageProps) {
                         }
 
                         {isSubmitEnable && <div className="pagination justify-content-end">
-                            <button type="button" className="btn btn-primary mt-2 btn-with-icon"><i className="ri-heart-fill"></i>Submit</button>
+                            <button type="button" className="btn btn-primary mt-2 btn-with-icon" onClick={(event) => onClickQuestions()}><i className="ri-heart-fill"></i>Submit</button>
                         </div>}
                         <nav aria-label="Page navigation example mt-4">
                             <ul className="pagination justify-content-center">
