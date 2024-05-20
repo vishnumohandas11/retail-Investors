@@ -5,6 +5,7 @@ import * as animationData from '../../lottie/animation-group.json';
 import { RInvestorContext } from '../../state/context';
 import { Question, QuestionOptions } from '../../state/state';
 import { ActionType, SetQuestionsIndex } from '../../state/actions';
+import { GoalRecommed } from './GoalRecommed';
 
 export interface IQuestionspageProps {
 }
@@ -14,6 +15,8 @@ export function Questionspage(props: IQuestionspageProps) {
     const { state, dispatch } = React.useContext(RInvestorContext);
 	const [disableNext, setDisableNext] = useState(false);
 	const [disableBack, setDisableBack] = useState(false);
+    const [isSubmitEnable, setSubmitEnable] = useState(false);
+    const [isQuestionsEnable, setIsQuestionsEnable] = useState(false);
 
     const [currentQuestion, setCurrentQuestion] = useState<Question>({
         QuestionNo : 1,
@@ -50,6 +53,7 @@ export function Questionspage(props: IQuestionspageProps) {
                      });
 					if((currentQuestion+1)===totalQuestions){
 						setDisableNext(true);
+                        setSubmitEnable(true);
 					}
 					setDisableBack(false);
 				}
@@ -64,6 +68,7 @@ export function Questionspage(props: IQuestionspageProps) {
 						setDisableBack(true);
 					}
 					setDisableNext(false);
+                    setSubmitEnable(false);
 				}
 			}
 		} catch {
@@ -73,7 +78,7 @@ export function Questionspage(props: IQuestionspageProps) {
 
     return (
         <div className="row">
-            <div className="col-sm-12 col-lg-12 col-md-12">
+            {isQuestionsEnable && <div className="col-sm-12 col-lg-12 col-md-12">
                 <div className="card">
                     <div className="card-header d-flex justify-content-between">
                         <div className="header-title">
@@ -108,10 +113,10 @@ export function Questionspage(props: IQuestionspageProps) {
                         </div>
                         }
 
-                        <div className="pagination justify-content-end">
+                        {isSubmitEnable && <div className="pagination justify-content-end">
                             <button type="button" className="btn btn-primary mt-2 btn-with-icon"><i className="ri-heart-fill"></i>Submit</button>
-                        </div>
-                        <nav aria-label="Page navigation example">
+                        </div>}
+                        <nav aria-label="Page navigation example mt-4">
                             <ul className="pagination justify-content-center">
                                 <li className={`page-item ${disableBack? 'disabled' : '' }`} onClick={(event) => onClickNextOrBack("Previous")}>
                                     <a className="page-link" href="#" tabIndex={-1} aria-disabled="true">Previous</a>
@@ -126,7 +131,7 @@ export function Questionspage(props: IQuestionspageProps) {
                     </div>
                 </div>
 
-            </div>
+            </div>}{!isQuestionsEnable && <div className="col-sm-12 col-lg-12 col-md-12"><GoalRecommed/></div>}
         </div>
     );
 }
