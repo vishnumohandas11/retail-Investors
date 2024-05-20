@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.year-selector-wrapper {
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+}
+
+.apexcharts-menu-icon {
+  display: none;
+}
+
+.apexcharts-legend.position-bottom .apexcharts-legend-series,
+foreignObject {
+  display: block !important;
+}
