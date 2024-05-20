@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Login } from './components/auth/Login';
 import { Header } from './components/common/Header';
@@ -7,22 +7,32 @@ import { Portfolio } from './components/Portfolio';
 import { Sidebar } from './components/common/Sidebar';
 import { RInvestorContext } from './state/context';
 import { RInvestorReducer } from './state/reducer';
-import { initialState } from './state/state';
+import { Questions, initialState } from './state/state';
 import { UserProfileEdit } from './components/user/UserProfileEdit';
 import { UserProfile } from './components/user/UserProfile';
 import { ChatModal } from './components/ChatModal';
 import { Calculator } from './components/calculator/Calculator';
 import { FAQ } from './components/Faq';
-import { Questions } from './components/Questionaire/Questions';
+import { Questionspage } from './components/Questionaire/Questionspage';
 import { Playgrond } from './components/playground/Playground';
+import questionsData from './mock/questions.json';
+import { ActionType } from './state/actions';
 
 function App() {
   const [state, dispatch] = useReducer(RInvestorReducer, initialState);
 
+  useEffect(() => {
+    const mockquestions: Questions = questionsData;
+    dispatch({
+      type: ActionType.SetQuestions,
+      payload: mockquestions 
+   });
+  }, []);
+
   return (
     <RInvestorContext.Provider value={{ state, dispatch }}>
       <div className="wrapper">
-        {state.isLoggedIn ? (<Router>
+        {state.isLoggedIn?.loginStatus ? (<Router>
           <Sidebar />
           <Header />
           {/*<!-- Sections -->*/}
@@ -30,7 +40,7 @@ function App() {
             <div className="container-fluid" style={{ width: 'auto', height: 'auto' }}>
               <Routes>
                 <Route path="/" element={<Portfolio />} />
-                <Route path="/questions" element={<Questions />} />
+                <Route path="/questions" element={<Questionspage />} />
                 <Route path="/user-edit" element={<UserProfileEdit />} />
                 <Route path="/user-profile" element={<UserProfile />} />
                 <Route path="/calculator" element={<Calculator />} />

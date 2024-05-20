@@ -1,14 +1,25 @@
-import {RInvestorState}from './state';
+import {Questions, LoggedIn, QuestionIndex}from './state';
 
 export enum ActionType {
-    SetUserLoggedIn
+    SetUserLoggedIn,
+    SetQuestions,
+    SetQuestionsIndex
   }
 
 
   export interface SetUserLoggedIn{
     type: ActionType.SetUserLoggedIn;
-    payload: RInvestorState;
+    payload: LoggedIn;
   }
   
+  export interface SetQuestions{
+    type: ActionType.SetQuestions;
+    payload: Questions;
+  }
 
-  export type RInvestorActions = SetUserLoggedIn;
+  export interface SetQuestionsIndex{
+    type: ActionType.SetQuestionsIndex;
+    payload: QuestionIndex;
+  }
+
+  export type RInvestorActions = SetUserLoggedIn | SetQuestions | SetQuestionsIndex;

@@ -10,7 +10,7 @@ export function Login(props: ILoginProps) {
    const signIn = () => {
       dispatch({
          type: ActionType.SetUserLoggedIn,
-         payload: {isLoggedIn: true}
+         payload: {loginStatus: true}
       });
    };
 

@@ -24,7 +24,7 @@ export function Header(props: IHeaderProps) {
 			case "Logout":
                 dispatch({
                     type: ActionType.SetUserLoggedIn,
-                    payload: {isLoggedIn: false}
+                    payload: {loginStatus: false}
                  });
 				navigate('/');
 				break;
