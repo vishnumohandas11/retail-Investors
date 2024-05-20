@@ -41,7 +41,8 @@ export function Questionspage(props: IQuestionspageProps) {
 			let currentQuestion = state.questionNo.questionIndex;
 			const totalQuestions = state.questions?.Questions? state.questions?.Questions.length : 0;
 			if (nextOrBack === "Next") {
-				if (currentQuestion < totalQuestions) {
+				if (currentQuestion < (totalQuestions-1)) {
+                    console.log("currentQuestion "+currentQuestion)
 					currentQuestion++;
                     dispatch({
                         type: ActionType.SetQuestionsIndex,
