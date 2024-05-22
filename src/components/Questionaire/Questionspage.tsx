@@ -6,6 +6,7 @@ import { RInvestorContext } from '../../state/context';
 import { Question, QuestionOptions } from '../../state/state';
 import { ActionType, SetQuestionsIndex } from '../../state/actions';
 import { GoalRecommed } from './GoalRecommed';
+import axios from 'axios';
 
 export interface IQuestionspageProps {
 }
@@ -17,10 +18,12 @@ export function Questionspage(props: IQuestionspageProps) {
 	const [disableBack, setDisableBack] = useState(false);
     const [isSubmitEnable, setSubmitEnable] = useState(false);
     const [isQuestionsEnable, setIsQuestionsEnable] = useState(true);
+    const [customerProfileValue, setCustomerProfileValue] = useState(0);
 
     const [currentQuestion, setCurrentQuestion] = useState<Question>({
         QuestionNo : 1,
         Question: '',
+        selectedValue: 0,
         Option: []
     });
 
@@ -32,43 +35,56 @@ export function Questionspage(props: IQuestionspageProps) {
             preserveAspectRatio: 'xMidYMid slice'
         }
     };
-
     useEffect(() => {
         if (state.questions?.Questions) {
             setCurrentQuestion(state.questions.Questions[state.questionNo.questionIndex]);
         } 
       }, [state.questions, state.questionNo.questionIndex]);
 
-    const onClickQuestions = () => {
-        setIsQuestionsEnable(false);
-    }  
+    const updateSelectedValue = (value: number) => {
+        let currentQuestionIndex = state.questionNo.questionIndex;
+        let questions = state.questions?.Questions;
+        if(!questions) return;
+        questions[currentQuestionIndex].selectedValue = value || 0;
+        dispatch({
+            type: ActionType.SetQuestions,
+            payload: {Questions: questions }
+         });
+    }
+
+    const submitQuestions = () => {
+        axios.post('/investment/questions/submit', { questions: state.questions})
+        .then(res => {
+            setCustomerProfileValue(parseInt(res.data.customerScore)+0.5);
+            setIsQuestionsEnable(false);
+        })
+    }
 
     function onClickNextOrBack(nextOrBack: string) {
 		try {
-			let currentQuestion = state.questionNo.questionIndex;
+			let currentQuestionIndex = state.questionNo.questionIndex;
 			const totalQuestions = state.questions?.Questions? state.questions?.Questions.length : 0;
 			if (nextOrBack === "Next") {
-				if (currentQuestion < (totalQuestions-1)) {
-                    console.log("currentQuestion "+currentQuestion)
-					currentQuestion++;
+				if (currentQuestionIndex < (totalQuestions-1)) {
+					currentQuestionIndex++;
                     dispatch({
                         type: ActionType.SetQuestionsIndex,
-                        payload: {questionIndex: currentQuestion }
+                        payload: {questionIndex: currentQuestionIndex }
                      });
-					if((currentQuestion+1)===totalQuestions){
+					if((currentQuestionIndex+1)===totalQuestions){
 						setDisableNext(true);
                         setSubmitEnable(true);
 					}
 					setDisableBack(false);
 				}
 			} else {
-				if (currentQuestion > 0) {
-					currentQuestion--;
+				if (currentQuestionIndex > 0) {
+					currentQuestionIndex--;
                     dispatch({
                         type: ActionType.SetQuestionsIndex,
-                        payload: {questionIndex: currentQuestion }
+                        payload: {questionIndex: currentQuestionIndex }
                      });
-					if((currentQuestion)===0){
+					if((currentQuestionIndex)===0){
 						setDisableBack(true);
 					}
 					setDisableNext(false);
@@ -100,8 +116,14 @@ export function Questionspage(props: IQuestionspageProps) {
                                 {currentQuestion?.Option.map((options: QuestionOptions) => (
                                     <li className="mb-3">
                                         <div className="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" id={`customRadio ${options.value}`} name={`customRadio ${options.value}`} className="custom-control-input" />
-                                            <label className="custom-control-label" htmlFor={`customRadio ${options.value}`}> {options.label} </label>
+                                            <input type="radio" 
+                                                id={`customRadio-${currentQuestion.QuestionNo}-${options.value}`} 
+                                                name={`customRadio-${currentQuestion.QuestionNo}`} 
+                                                className="custom-control-input" 
+                                                onChange={()=>updateSelectedValue(options.value)}
+                                                checked={currentQuestion.selectedValue === options.value}
+                                            />
+                                            <label className="custom-control-label" htmlFor={`customRadio-${currentQuestion.QuestionNo}-${options.value}`}> {options.label} </label>
                                         </div></li>
                                      ))}
                                 </ul>
@@ -117,15 +139,14 @@ export function Questionspage(props: IQuestionspageProps) {
                         </div>
                         }
 
-                        {isSubmitEnable && <div className="pagination justify-content-end">
-                            <button type="button" className="btn btn-primary mt-2 btn-with-icon" onClick={(event) => onClickQuestions()}><i className="ri-heart-fill"></i>Submit</button>
+                        {isSubmitEnable && <div className="pagination justify-content-start">
+                            <button type="button" className="btn btn-primary mt-2 btn-with-icon" onClick={submitQuestions}>Submit</button>
                         </div>}
                         <nav aria-label="Page navigation example mt-4">
                             <ul className="pagination justify-content-center">
                                 <li className={`page-item ${disableBack? 'disabled' : '' }`} onClick={(event) => onClickNextOrBack("Previous")}>
                                     <a className="page-link" href="#" tabIndex={-1} aria-disabled="true">Previous</a>
                                 </li>
-                               
                                 <li className={`page-item ${disableNext ? 'disabled' : '' }`}  onClick={(event) => onClickNextOrBack("Next")}>
                                     <a className="page-link" href="#">Next</a>
                                 </li>
@@ -135,7 +156,7 @@ export function Questionspage(props: IQuestionspageProps) {
                     </div>
                 </div>
 
-            </div>}{!isQuestionsEnable && <div className="col-sm-12 col-lg-12 col-md-12"><GoalRecommed/></div>}
+            </div>}{!isQuestionsEnable && <div className="col-sm-12 col-lg-12 col-md-12"><GoalRecommed customerValue={customerProfileValue}/></div>}
         </div>
     );
 }

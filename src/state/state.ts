@@ -20,6 +20,7 @@ export interface Questions {
 export interface Question {
     QuestionNo : number;
     Question: string;
+    selectedValue: number;
     Option: QuestionOptions[];
 }
 
