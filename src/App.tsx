@@ -32,7 +32,7 @@ function App() {
   return (
     <RInvestorContext.Provider value={{ state, dispatch }}>
       <div className="wrapper">
-        {state.isLoggedIn?.loginStatus ? (<Router>
+        {!state.isLoggedIn?.loginStatus ? (<Router>
           <Sidebar />
           <Header />
           {/*<!-- Sections -->*/}

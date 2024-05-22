@@ -2,9 +2,10 @@ import * as React from 'react';
 import ReactSpeedometer from 'react-d3-speedometer';
 
 export interface IGoalRecommedProps {
+  customerValue: number;
 }
 
-export function GoalRecommed(props: IGoalRecommedProps) {
+export function GoalRecommed({customerValue}: IGoalRecommedProps) {
   return (
     <div className="row">
       <div className="col-sm-12 col-lg-12 col-md-12">
@@ -20,7 +21,9 @@ export function GoalRecommed(props: IGoalRecommedProps) {
                 <ReactSpeedometer
                   width={500}
                   needleHeightRatio={0.7}
-                  value={777}
+                  value={customerValue}
+                  minValue={0}
+                  maxValue={5}
                   currentValueText="Risk Level"
                   customSegmentLabels={[
                     {
@@ -63,28 +66,50 @@ export function GoalRecommed(props: IGoalRecommedProps) {
                             <th className="text-center prc-wrap"></th>
                             <th className="text-center prc-wrap">
                               <div className="prc-box">
-                                <div className="h3 pt-4"><small>Hybrid</small>
-                                </div> <span className="type">Low-Risk</span>
+                                <div className="h3 pt-4"><small>Stable</small>
+                                </div>
+                              </div>
+                            </th>
+                            <th className="text-center prc-wrap">
+                              <div className="prc-box ">
+                                <div className="h3 pt-4"><small>Stable Plus</small>
+                                </div> 
                               </div>
                             </th>
                             <th className="text-center prc-wrap">
                               <div className="prc-box active">
-                                <div className="h3 pt-4"><small>Capital</small>
-                                </div> <span className="type">Moderate-Risk</span>
+                                <div className="h3 pt-4"><small>Growth</small>
+                                </div> 
+                                <span className="type">Recommend</span>
                               </div>
                             </th>
                             <th className="text-center prc-wrap">
                               <div className="prc-box">
-                                <div className="h3 pt-4"><small>Speculative</small>
-                                </div> <span className="type">High-Risk</span>
+                                <div className="h3 pt-4"><small>Growth Plus</small>
+                                </div> 
                               </div>
                             </th>
-                            
+                            <th className="text-center prc-wrap">
+                              <div className="prc-box">
+                                <div className="h3 pt-4"><small>Aggressive</small>
+                                </div> 
+                              </div>
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
                             <th className="text-center" scope="row">Bonds</th>
+                            <td className="text-center child-cell">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
+                            <td className="text-center child-cell active">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
                             <td className="text-center child-cell">
                               <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -119,7 +144,16 @@ export function GoalRecommed(props: IGoalRecommedProps) {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
                             </td>
-                           
+                            <td className="text-center child-cell active">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
+                            <td className="text-center child-cell">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
                           </tr>
                           <tr>
                             <th className="text-center" scope="row">Real Estate</th>
@@ -138,7 +172,16 @@ export function GoalRecommed(props: IGoalRecommedProps) {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
                             </td>
-                           
+                            <td className="text-center child-cell active">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
+                            <td className="text-center child-cell">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
                           </tr>
                           <tr>
                             <th className="text-center" scope="row">Stocks</th>
@@ -157,7 +200,16 @@ export function GoalRecommed(props: IGoalRecommedProps) {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
                             </td>
-                           
+                            <td className="text-center child-cell active">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
+                            <td className="text-center child-cell">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
                           </tr>
                           <tr>
                             <th className="text-center" scope="row">Mutual Funds/ETFs</th>
@@ -176,7 +228,16 @@ export function GoalRecommed(props: IGoalRecommedProps) {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
                             </td>
-                           
+                            <td className="text-center child-cell active">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
+                            <td className="text-center child-cell">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
                           </tr>
                           <tr>
                             <th className="text-center" scope="row">Cryptocurrencies</th>
@@ -195,7 +256,16 @@ export function GoalRecommed(props: IGoalRecommedProps) {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
                             </td>
-                           
+                            <td className="text-center child-cell active">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
+                            <td className="text-center child-cell">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
                           </tr>
 
                           <tr>
@@ -215,7 +285,16 @@ export function GoalRecommed(props: IGoalRecommedProps) {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
                             </td>
-                           
+                            <td className="text-center child-cell active">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
+                            <td className="text-center child-cell">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="text-primary" width="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </td>
                           </tr>                         
                            <tr>
                             <td className="text-center">
@@ -227,11 +306,17 @@ export function GoalRecommed(props: IGoalRecommedProps) {
                             </td>
                             <td className="text-center"> <a href="#" className="btn btn-primary mt-3">Select</a>
                             </td>
-                            
+                            <td className="text-center"> <a href="#" className="btn btn-primary mt-3">Select</a>
+                            </td>
+                            <td className="text-center"> <a href="#" className="btn btn-primary mt-3">Select</a>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
+                  </div>
+                  <div className="d-flex justify-content-center mb-5">
+                    <a href="/playground#" className="btn btn-primary mt-3">Compare previous performance</a>
                   </div>
                 </div>
               </div>
