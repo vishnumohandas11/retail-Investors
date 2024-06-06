@@ -66,7 +66,7 @@ export function UserProfileEdit(props: IUserProfileEditProps) {
                                         <div className=" row align-items-center">
                                             <div className="form-group col-sm-6">
                                                 <label htmlFor="fname">First Name:</label>
-                                                <input type="text" className="htmlForm-control" id="fname" value="Vishnu Das" />
+                                                <input type="text" className="htmlForm-control" id="fname" value="Ben Stocks" />
                                             </div>
                                             <div className="form-group col-sm-6">
                                                 <label htmlFor="lname">Last Name:</label>
@@ -74,7 +74,7 @@ export function UserProfileEdit(props: IUserProfileEditProps) {
                                             </div>
                                             <div className="form-group col-sm-6">
                                                 <label htmlFor="uname">User Name:</label>
-                                                <input type="text" className="form-control" id="uname" value="vishnu@01" />
+                                                <input type="text" className="form-control" id="uname" value="Ben.Stocks@01" />
                                             </div>
                                             <div className="form-group col-sm-6">
                                                 <label htmlFor="cname">City:</label>

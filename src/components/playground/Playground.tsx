@@ -40,9 +40,9 @@ export function Playgrond(props: IPlaygrondProps) {
             categories: [
               'Stable',
               'Stable Plus',
+              'Balanced',
               'Growth',
-              'Growth Plus',
-              'Aggressive'
+              'High Growth'
             ]
           },
           fill: {

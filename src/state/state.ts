@@ -21,6 +21,8 @@ export interface Question {
     QuestionNo : number;
     Question: string;
     selectedValue: number;
+    QuestionType: string;
+    isPriceFactor: boolean;
     Option: QuestionOptions[];
 }
 

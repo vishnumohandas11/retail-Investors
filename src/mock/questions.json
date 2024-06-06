@@ -2,8 +2,10 @@
   "Questions": [
     {
       "QuestionNo": 1,
-      "Question": "How many years do you exppect to invest this Money?",
+      "Question": "How many years do you expect to invest this Money?",
       "selectedValue": 0,
+      "QuestionType": "Radio",
+      "isPriceFactor": true,
       "Option": [
         {
           "label": "Less than 3 years",
@@ -25,8 +27,10 @@
     },
     {
       "QuestionNo": 2,
-      "Question": "What are your investment goals?",
+      "Question": "What are your primary investment goals?",
+      "QuestionType": "Checkbox",
       "selectedValue": 0,
+      "isPriceFactor": false,
       "Option": [
         {
           "label": "Retirement",
@@ -41,18 +45,166 @@
           "value": 3
         },
         {
-          "label": "Other",
+          "label": "Others",
           "value": 4
         }
       ]
     },
     {
       "QuestionNo": 3,
-      "Question": "How comfortable are you with potential fluctuations in your investment portfolio?",
+      "QuestionType": "Slider",
+      "Question": "On a scale of 1 to 10 (1 being extremely risk-averse and 10 being very risk-tolerant), how comfortable are you with potential fluctuations in your investment portfolio?",
+      "selectedValue": 0,
+      "isPriceFactor": true,
+      "Option": []
+    },
+    {
+      "QuestionNo": 4,
+      "QuestionType": "Radio",
+      "Question": "Which statement best describes your personal investment philosophy?",
+      "selectedValue": 0,
+      "isPriceFactor": true,
+      "Option": [
+        {
+          "label": "Income: I prefer investments that generate consistent (but likely lower) returns, with a focus on income. I want minimal fluctuations and risk of declines.",
+          "value": 1
+        },
+        {
+          "label": "Growth and Income: I seek a balance between growth and income. I’m comfortable with moderate fluctuations and risk.",
+          "value": 2
+        },
+        {
+          "label": "I’m willing to accept higher fluctuations and risk for the potential of achieving higher average returns over time.",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "QuestionNo": 5,
+      "QuestionType": "Radio",
+      "Question": "How concerned are you about inflation eroding your purchasing power over time?",
+      "selectedValue": 0,
+      "isPriceFactor": true,
+      "Option": [
+        {
+          "label": "My goal is to minimize swings in my portfolio’s value, even if it means not keeping pace with inflation.",
+          "value": 1
+        },
+        {
+          "label": "My goal is to at least keep pace with inflation, with the risk of modest swings in my portfolio’s value.",
+          "value": 2
+        },
+        {
+          "label": "My goal is to significantly exceed inflation, with the risk of larger swings in my portfolio’s value.",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "QuestionNo": 6,
+      "QuestionType": "Radio",
+      "isPriceFactor": true,
+      "Question": "How familiar are you with different investment types (stocks, bonds, real estate, etc.)?",
       "selectedValue": 0,
       "Option": [
         {
-          "label": "On a scale of 1 to 10",
+          "label": "Very familiar",
+          "value": 3
+        },
+        {
+          "label": "Somewhat familiar.",
+          "value": 2
+        },
+        {
+          "label": " Not familiar",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "QuestionNo": 7,
+      "QuestionType": "Checkbox",
+      "isPriceFactor": false,
+      "Question": "Have you invested before, and if so, what types of investments have you used?",
+      "selectedValue": 0,
+      "Option": [
+        {
+          "label": "Stocks",
+          "value": 1
+        },
+        {
+          "label": "Bonds",
+          "value": 2
+        },
+        {
+          "label": "Real estate",
+          "value": 3
+        },
+        {
+          "label": "Mutual funds",
+          "value": 4
+        },
+        {
+          "label": "Others",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "QuestionNo": 8,
+      "QuestionType": "Radio",
+      "Question": "What is your current income level? (Net monthly salary)?",
+      "selectedValue": 0,
+      "isPriceFactor": true,
+      "Option": [
+        {
+          "label": "Low",
+          "value": 1
+        },
+        {
+          "label": "Moderate",
+          "value": 2
+        },
+        {
+          "label": "High",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "QuestionNo": 9,
+      "QuestionType": "Radio",
+      "Question": "Do you have any outstanding debts or financial obligations?",
+      "selectedValue": 0,
+      "isPriceFactor": false,
+      "Option": [
+        {
+          "label": "Yes",
+          "value": 1
+        },
+        {
+          "label": "No",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "QuestionNo": 10,
+      "QuestionType": "Radio",
+      "isPriceFactor": true,
+      "Question": "Liquidity Needs",
+      "selectedValue": 0,
+      "Option": [
+        {
+          "label": "Low (No immediate need for cash)",
+          "value": 3
+        },
+        {
+          "label": "Moderate (Occasional need for cash)",
+          "value": 2
+        },
+        {
+          "label": "High (Frequent need for cash)",
           "value": 1
         }
       ]

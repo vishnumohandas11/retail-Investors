@@ -167,7 +167,7 @@ export function Header(props: IHeaderProps) {
                                 <li className="nav-item nav-icon dropdown">
                                     <a href="#" className="nav-item nav-icon dropdown-toggle pr-0 search-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                         <img src="../assets/images/user/1.jpg" className="img-fluid avatar-rounded" alt="user" />
-                                        <span className="mb-0 ml-2 user-name">Vishnu Das</span>
+                                        <span className="mb-0 ml-2 user-name">Ben Stocks</span>
                                     </a>
                                     <ul className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                         <li className="dropdown-item d-flex svg-icon">
