@@ -70,15 +70,16 @@ export function Playgrond(props: IPlaygrondProps) {
               data: [10000, 10000, 10000, 10000, 10000]
             },
             {
-              name: 'Profit',
+              name: 'Return',
               group: 'budget',
-              data: [2000, 3320, 4520, 5800, 8500]
+              data: [7000, 8320, 9520, 10800, 13500]
             }
           ]
       }
     );
 
-    const [selectedYear, setSelectedYear] = React.useState('6 Months');
+    const [selectedYear, setSelectedYear] = React.useState('5 Year');
+
     const updateYear = (year: string) => {
         setSelectedYear(year);
         switch (year) {
@@ -178,7 +179,7 @@ export function Playgrond(props: IPlaygrondProps) {
                                     <div className="col-lg-6 col-md-12">
                                         <div className="prc-box active">
                                             <div className="h3 pt-4">$23,500.00
-                                            </div> <span className="type">Current(over 5 Yrs.)</span>
+                                            </div> <span className="type">Current<br />(over 5 Yrs.)</span>
                                         </div>
                                     </div>
                                 </div>

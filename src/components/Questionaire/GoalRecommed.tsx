@@ -118,34 +118,43 @@ export function GoalRecommed({customerValue, recommendation}: IGoalRecommedProps
                           <tr>
                             <th className="text-center prc-wrap"></th>
                             <th className="text-center prc-wrap">
-                              <div className="prc-box">
+                              <div className={`prc-box ${recommendation.theme === "Stable" ? "active": ""}`}>
                                 <div className="h3 pt-4"><small>Stable</small>
                                 </div>
+                                {recommendation.theme === "Stable" &&
+                                  <span className="type">Recommend</span>}
                               </div>
                             </th>
                             <th className="text-center prc-wrap">
-                              <div className="prc-box ">
+                              <div className={`prc-box ${recommendation.theme === "Stable Plus" ? "active": ""}`}>
                                 <div className="h3 pt-4"><small>Stable Plus</small>
-                                </div> 
+                                </div>
+                                {recommendation.theme === "Stable Plus" &&
+                                  <span className="type">Recommend</span>}
                               </div>
                             </th>
                             <th className="text-center prc-wrap">
-                              <div className="prc-box active">
+                              <div className={`prc-box ${recommendation.theme === "Balanced" ? "active": ""}`}>
                                 <div className="h3 pt-4"><small>Balanced</small>
                                 </div> 
-                                <span className="type">Recommend</span>
+                                {recommendation.theme === "Balanced" &&
+                                  <span className="type">Recommend</span>}
                               </div>
                             </th>
-                            <th className="text-center prc-wrap">
+                            <th className={`prc-box ${recommendation.theme === "Growth" ? "active": ""}`}>
                               <div className="prc-box">
                                 <div className="h3 pt-4"><small>Growth</small>
                                 </div> 
+                                {recommendation.theme === "Growth" &&
+                                  <span className="type">Recommend</span>}
                               </div>
                             </th>
                             <th className="text-center prc-wrap">
-                              <div className="prc-box">
+                              <div className={`prc-box ${recommendation.theme === "High Growth" ? "active": ""}`}>
                                 <div className="h3 pt-4"><small>High Growth</small>
-                                </div> 
+                                </div>
+                                {recommendation.theme === "High Growth" &&
+                                  <span className="type">Recommend</span>}
                               </div>
                             </th>
                           </tr>
@@ -297,7 +306,10 @@ export function GoalRecommed({customerValue, recommendation}: IGoalRecommedProps
                     </div>
                   </div>
                   <div className="d-flex justify-content-center mb-5">
-                    <div className="btn btn-primary mt-3" onClick={()=>setIsCompare(true)}>Compare previous performance</div>
+                    <div className="btn btn-primary mt-3" onClick={()=>{
+                      setIsCompare(true)
+                      window.scroll(0,0)
+                      }}>Compare previous performance</div>
                   </div>
                 </div>
               </div>
