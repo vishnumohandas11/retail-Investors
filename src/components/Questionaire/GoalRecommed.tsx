@@ -1,18 +1,22 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import ReactSpeedometer from 'react-d3-speedometer';
-
+import { Playgrond } from "../playground/Playground"
 export interface IGoalRecommedProps {
   customerValue: number;
   recommendation:{
     theme: string;
     expectedReturn: string;
     meaning: string;
-    horizon: string
+    horizon: string;
+    riskScore: number
   }
 }
 
 export function GoalRecommed({customerValue, recommendation}: IGoalRecommedProps) {
+  const [isComapare, setIsCompare] = useState(false)
+  
   return (
+    !isComapare ? (
     <div className="row">
       <div className="col-sm-12 col-lg-12 col-md-12">
         <div className="card">
@@ -56,7 +60,7 @@ export function GoalRecommed({customerValue, recommendation}: IGoalRecommedProps
                 <ReactSpeedometer
                   width={500}
                   needleHeightRatio={0.7}
-                  value={customerValue}
+                  value={recommendation.riskScore}
                   minValue={0}
                   maxValue={5}
                   currentValueText="Risk Level"
@@ -293,7 +297,7 @@ export function GoalRecommed({customerValue, recommendation}: IGoalRecommedProps
                     </div>
                   </div>
                   <div className="d-flex justify-content-center mb-5">
-                    <a href="/playground#" className="btn btn-primary mt-3">Compare previous performance</a>
+                    <div className="btn btn-primary mt-3" onClick={()=>setIsCompare(true)}>Compare previous performance</div>
                   </div>
                 </div>
               </div>
@@ -302,6 +306,8 @@ export function GoalRecommed({customerValue, recommendation}: IGoalRecommedProps
         </div>
       </div>
 
-    </div>
+    </div>)
+    :
+    <Playgrond goBack={()=>setIsCompare(false)}/>
   );
 }

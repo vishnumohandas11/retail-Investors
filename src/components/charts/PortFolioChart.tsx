@@ -10,11 +10,11 @@ export const PortFolioChart = () => {
         series: [
           {
             name: "Stable",
-            data: [ 3.8, 4.3, 3.9, 5.2, 5.5, 5.1]
+            data: [ 2, 3, 2, 4, 4, 3]
           },
           {
             name: "Growth",
-            data: [ 5.7, 7.5, 3.2, 5.7, 6.9, 6.2]
+            data: [ 6, 7, 3, 6, 7, 9]
           }
         ],
         options: {

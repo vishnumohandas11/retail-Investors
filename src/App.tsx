@@ -44,7 +44,7 @@ function App() {
                 <Route path="/user-edit" element={<UserProfileEdit />} />
                 <Route path="/user-profile" element={<UserProfile />} />
                 {/* <Route path="/calculator" element={<Calculator />} /> */}
-                <Route path="/playground" element={<Playgrond />} />
+                <Route path="/playground" element={<Playgrond goBack={()=>{}}/>} />
                 <Route path="/faq" element={<FAQ />} />
               </Routes>
               {/* <div className='chat-button iq-icons-list'><button type="button" className="btn btn-primary mt-2 btn-with-icon" data-toggle="modal" data-target=".bd-example-modal-lg"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

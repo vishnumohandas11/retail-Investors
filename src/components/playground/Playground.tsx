@@ -5,6 +5,7 @@ import Chart from 'react-apexcharts';
 import { IUserProfileProps } from '../user/UserProfile';
 
 export interface IPlaygrondProps {
+    goBack: ()=> void
 }
 
 export function Playgrond(props: IPlaygrondProps) {
@@ -258,7 +259,7 @@ export function Playgrond(props: IPlaygrondProps) {
                             </div>
                             <div className="col-sm-12 col-lg-12 col-md-12">
                                 <div className="d-flex justify-content-left mt-5">
-                                    <a href="/questions?state=submitted" className="btn btn-primary mt-3"> Go Back</a>
+                                    <div className="btn btn-primary mt-3" onClick={()=>{props.goBack()}}>Go Back</div>
                                 </div>
                             </div>
                         </div>

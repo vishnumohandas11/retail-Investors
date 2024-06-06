@@ -23,6 +23,7 @@ export function Questionspage(props: IQuestionspageProps) {
         theme: '',
         expectedReturn: '',
         meaning: '',
+        riskScore: 0.5,
         horizon: ''
     });
 
@@ -87,35 +88,40 @@ export function Questionspage(props: IQuestionspageProps) {
                 theme: 'Stable',
                 expectedReturn: '3%',
                 meaning: 'Secure your emergency needs.',
-                horizon: 'Short to Medium Term'
+                horizon: 'Short to Medium Term',
+                riskScore: 0.5
             })
         } else if (11<=score && score<=13) {
             setRecommendation({
                 theme: 'Stable Plus',
                 expectedReturn: '5%',
                 meaning: 'Steady growth that you can count on.',
-                horizon: 'Short to Medium Term'
+                horizon: 'Short to Medium Term',
+                riskScore: 1.5
             })
         } else if (14<=score && score<=17) {
             setRecommendation({
                 theme: 'Balanced',
                 expectedReturn: '7%',
                 meaning: 'Build a foundation for the future.',
-                horizon: 'Medium Term'
+                horizon: 'Medium Term',
+                riskScore: 2.5
             })
         } else if (18<=score && score<=21) {
             setRecommendation({
                 theme: 'Growth',
                 expectedReturn: '9%',
                 meaning: 'Beat the market and grow big.',
-                horizon: 'Long Term'
+                horizon: 'Long Term',
+                riskScore: 3.5
             })
         } else {
             setRecommendation({
                 theme: 'High Growth',
                 expectedReturn: '12%',
                 meaning: 'Retire rich with financial freedom.',
-                horizon: 'Long Term'
+                horizon: 'Long Term',
+                riskScore: 4.5
             })
         
         }
@@ -273,7 +279,11 @@ export function Questionspage(props: IQuestionspageProps) {
                     </div>
                 </div>
 
-            </div>}{!isQuestionsEnable && <div className="col-sm-12 col-lg-12 col-md-12"><GoalRecommed customerValue={customerProfileValue} recommendation={recommendation}/></div>}
+            </div>}{!isQuestionsEnable &&
+                 <div className="col-sm-12 col-lg-12 col-md-12">
+                    <GoalRecommed customerValue={customerProfileValue} recommendation={recommendation}/>
+                </div>
+                }
         </div>
     );
 }
