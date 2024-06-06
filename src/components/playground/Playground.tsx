@@ -161,7 +161,7 @@ export function Playgrond(props: IPlaygrondProps) {
                 <div className="card">
                     <div className="card-header d-flex justify-content-between">
                         <div className="header-title">
-                            <h4 className="card-title">Investment using virtual money</h4>
+                            <h4 className="card-title">Performance of Themes</h4>
                         </div>
                     </div>
                     <div className="card-body">
@@ -170,14 +170,14 @@ export function Playgrond(props: IPlaygrondProps) {
                                 <div className='row'>
                                     <div className="col-lg-6 col-md-12">
                                         <div className="prc-box">
-                                            <div className="h3 pt-4">$100,000.00
-                                            </div> <span className="type">Balance Cash</span>
+                                            <div className="h3 pt-4">$10,000.00
+                                            </div> <span className="type">Invested amount</span>
                                         </div>
                                     </div>
                                     <div className="col-lg-6 col-md-12">
                                         <div className="prc-box active">
-                                            <div className="h3 pt-4">$39,000.00
-                                            </div> <span className="type">Total Invested</span>
+                                            <div className="h3 pt-4">$23,500.00
+                                            </div> <span className="type">Current(over 5 Yrs.)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -254,6 +254,11 @@ export function Playgrond(props: IPlaygrondProps) {
                                 <div className="d-flex justify-content-center mt-5">
                                     {/* @ts-expect-error */}
                                     <Chart options={chartData.options} series={chartData.series} type="bar" width={800} height={320} />
+                                </div>
+                            </div>
+                            <div className="col-sm-12 col-lg-12 col-md-12">
+                                <div className="d-flex justify-content-left mt-5">
+                                    <a href="/questions?state=submitted" className="btn btn-primary mt-3"> Go Back</a>
                                 </div>
                             </div>
                         </div>

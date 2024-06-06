@@ -125,6 +125,7 @@ export function Questionspage(props: IQuestionspageProps) {
         setRecommendationValue(score);
         setCustomerProfileValue(3.5);
         setIsQuestionsEnable(false);
+        window.scroll(0,0);
         // axios.post('/investment/questions/submit', { questions: state.questions})
         // .then(res => {
         //     setCustomerProfileValue(parseInt(res.data.customerScore)+0.5);

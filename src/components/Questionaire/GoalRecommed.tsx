@@ -90,6 +90,20 @@ export function GoalRecommed({customerValue, recommendation}: IGoalRecommedProps
 
             {/** investment suggestion */}
 
+            {
+            //   <div className="modal bd-example-modal-lg" role="dialog" aria-hidden="false">
+            //   <div className="modal-dialog modal-lg">
+            //       <div className="modal-content">
+                      
+            //           <div className="modal-body">
+            //               You have selected Balanced Portfolio.
+            //           </div>
+                      
+            //       </div>
+            //   </div>
+            // </div>
+            }
+
             <div className="row">
               <div className="col-sm-12">
                 <div className="card">
