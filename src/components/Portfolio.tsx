@@ -1,9 +1,12 @@
 import * as React from 'react';
+import Chart from 'react-apexcharts';
+import { PortFolioChart } from './charts/PortFolioChart';
 
 export interface IPortfolioProps {
 }
 
 export function Portfolio (props: IPortfolioProps) {
+
   return (
     <div className="row">
         <div className="col-md-12 mb-4 mt-1">
@@ -39,10 +42,10 @@ export function Portfolio (props: IPortfolioProps) {
                   <div className="card-body">
                      <div className="d-flex align-items-center">
                         <div className="">
-                            <p className="mb-2 text-secondary">Total Profit</p>
+                            <p className="mb-2 text-secondary">Total investment as of date</p>
                             <div className="d-flex flex-wrap justify-content-start align-items-center">
-                               <h5 className="mb-0 font-weight-bold">$95,595</h5>
-                               <p className="mb-0 ml-3 text-success font-weight-bold">+3.55%</p>
+                               <h5 className="mb-0 font-weight-bold">$100,000</h5>
+                               {/* <p className="mb-0 ml-3 text-success font-weight-bold">+3.55%</p> */}
                             </div>                            
                         </div>
                      </div>
@@ -54,10 +57,10 @@ export function Portfolio (props: IPortfolioProps) {
                 <div className="card-body">
                     <div className="d-flex align-items-center">
                         <div className="">
-                            <p className="mb-2 text-secondary">Total Investment</p>
+                            <p className="mb-2 text-secondary">Current portfolio</p>
                             <div className="d-flex flex-wrap justify-content-start align-items-center">
-                               <h5 className="mb-0 font-weight-bold">$92,202</h5>
-                               <p className="mb-0 ml-3 text-success font-weight-bold">Profit: $3,393</p>
+                               <h5 className="mb-0 font-weight-bold">$120,000</h5>
+                               {/* <p className="mb-0 ml-3 text-success font-weight-bold">Profit: $3,393</p> */}
                             </div>                            
                         </div>
                     </div>
@@ -69,10 +72,10 @@ export function Portfolio (props: IPortfolioProps) {
                 <div className="card-body">
                     <div className="d-flex align-items-center">
                         <div className="">
-                        <p className="mb-2 text-secondary">Mutual Fund</p>
+                        <p className="mb-2 text-secondary">Total Returns as of date XIRR</p>
                            <div className="d-flex flex-wrap justify-content-start align-items-center">
-                              <h5 className="mb-0 font-weight-bold">$50,984</h5>
-                              <p className="mb-0 ml-3 text-danger font-weight-bold">-3.98%</p>
+                              <h5 className="mb-0 font-weight-bold">$20,000</h5>
+                              <p className="mb-0 ml-3 text-success font-weight-bold">+20%</p>
                            </div>                             
                         </div>
                     </div>
@@ -88,20 +91,22 @@ export function Portfolio (props: IPortfolioProps) {
                         <div><svg width="24" height="24" viewBox="0 0 24 24" fill="primary" xmlns="http://www.w3.org/2000/svg">
                               <rect x="3" y="3" width="18" height="18" rx="2" fill="#3378FF" />
                               </svg>
-                           <span>Profit</span>
+                           <span>Stable</span>
                         </div>
                         <div className="ml-3"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <rect x="3" y="3" width="18" height="18" rx="2" fill="#19b3b3" />
                                           </svg>
-                           <span>Invested</span>
+                           <span>Growth</span>
                         </div>
                      </div>
                   </div>
-                   <div id="chart-apex-column-01" className="custom-chart"></div>
+                   <div id="chart-apex-column-01" className="custom-chart">
+                     <PortFolioChart />
+                   </div>
                 </div>
             </div>   
             </div>
-            <div className="card">
+            {/* <div className="card">
                   <div className="card-header d-flex justify-content-between">
                      <div className="header-title">
                         <h4 className="card-title"> Candlestick Charts</h4>
@@ -110,7 +115,7 @@ export function Portfolio (props: IPortfolioProps) {
                   <div className="card-body">
                      <div id="apex-candlestick-chart"></div>
                   </div>
-               </div>
+               </div> */}
          </div>
       </div>
     </div>

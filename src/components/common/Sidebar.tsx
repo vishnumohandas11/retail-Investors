@@ -82,7 +82,7 @@ export function Sidebar(props: ISidebarProps) {
                                 </a>
                             </li>
 
-                            <li className=" sidebar-layout">
+                            {/* <li className=" sidebar-layout">
                                 <a href="#" className="svg-icon" onClick={(event) => onUserMenuClick("calculator")}>
                                     <i className="">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -90,7 +90,7 @@ export function Sidebar(props: ISidebarProps) {
                                         </svg>
                                     </i><span className="ml-2">Calculator</span>
                                 </a>
-                            </li>
+                            </li> */}
                             <li className=" sidebar-layout">
                                 <a href="#" className="svg-icon" onClick={(event) => onUserMenuClick("playground")}>
                                     <i className="">
