@@ -141,8 +141,8 @@ export function GoalRecommed({customerValue, recommendation}: IGoalRecommedProps
                                   <span className="type">Recommend</span>}
                               </div>
                             </th>
-                            <th className={`prc-box ${recommendation.theme === "Growth" ? "active": ""}`}>
-                              <div className="prc-box">
+                            <th className="text-center prc-wrap">
+                              <div className={`prc-box ${recommendation.theme === "Growth" ? "active": ""}`}>
                                 <div className="h3 pt-4"><small>Growth</small>
                                 </div> 
                                 {recommendation.theme === "Growth" &&
@@ -320,6 +320,6 @@ export function GoalRecommed({customerValue, recommendation}: IGoalRecommedProps
 
     </div>)
     :
-    <Playgrond goBack={()=>setIsCompare(false)}/>
+    <Playgrond goBack={()=>setIsCompare(false)} isGoBackEnabled/>
   );
 }

@@ -6,6 +6,7 @@ import { IUserProfileProps } from '../user/UserProfile';
 
 export interface IPlaygrondProps {
     goBack: ()=> void
+    isGoBackEnabled?: boolean
 }
 
 export function Playgrond(props: IPlaygrondProps) {
@@ -258,11 +259,14 @@ export function Playgrond(props: IPlaygrondProps) {
                                     <Chart options={chartData.options} series={chartData.series} type="bar" width={800} height={320} />
                                 </div>
                             </div>
-                            <div className="col-sm-12 col-lg-12 col-md-12">
+                            { props.isGoBackEnabled && <div className="col-sm-12 col-lg-12 col-md-12">
                                 <div className="d-flex justify-content-left mt-5">
-                                    <div className="btn btn-primary mt-3" onClick={()=>{props.goBack()}}>Go Back</div>
+                                    <div className="btn btn-primary mt-3" onClick={()=>{
+                                        props.goBack()
+                                        window.scroll(0,0)
+                                    }}>Go Back</div>
                                 </div>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                 </div>
